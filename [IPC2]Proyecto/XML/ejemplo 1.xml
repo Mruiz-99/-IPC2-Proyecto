@@ -1,0 +1,28 @@
+<notas>
+	<tarea1>
+		<estudiante>
+			<nombre>Andres</nombre>
+			<nota>30</nota>
+		</estudiante>
+		<estudiante>
+			<nombre>Mynor</nombre>
+			<nota>100</nota>
+		</estudiante>
+		<estudiante>
+			<nombre>Andrea</nombre>
+			<nota>0</nota>
+		</estudiante>
+		<estudiante>
+			<nombre>Monica</nombre>
+			<nota>100</nota>
+		</estudiante>
+		<estudiante>
+			<nombre>Juan</nombre>
+			<nota>90</nota>
+		</estudiante>
+		<estudiante>
+			<nombre>Luis</nombre>
+			<nota>15</nota>
+		</estudiante>
+	</tarea1>
+</notas>
