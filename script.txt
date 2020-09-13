@@ -1,0 +1,20 @@
+use [[IPC2]]Proyecto]
+
+create table pais
+(
+	id_pais int primary key identity,
+	pais varchar(200)
+)
+
+create table usuarios
+(
+	id int primary key identity,
+	nombres varchar(200) not null,
+	apellidos varchar(200) not null,
+	nombre_usuario varchar(150) not null,
+	pass varchar(100) not null,
+	fecha_nacimiento date not null,
+	id_pais int not null,
+	CONSTRAINT FK_pais FOREIGN KEY (id_pais) REFERENCES pais (id_pais),
+	correo varchar(200) not null,
+)
