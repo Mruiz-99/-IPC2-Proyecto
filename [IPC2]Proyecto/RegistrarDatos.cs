@@ -143,7 +143,7 @@ namespace _IPC2_Proyecto
             dr = cmd.ExecuteReader();
             if (dr.Read())
             {
-                    HttpContext.Current.Response.Redirect("Menu.aspx");
+                    HttpContext.Current.Response.Redirect("Menu.aspx?parametro=" + user);
                     desconectar();
                 
             }

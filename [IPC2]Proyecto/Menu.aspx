@@ -14,8 +14,15 @@
         <div id="titulo">
             Othello
         </div>
+        <div id="datos1"> 
+            <div id="credenciales1" class="auto-style1">
+               
+                <asp:Label ID="user" runat="server" Text="Jugador"></asp:Label>
+              
+           </div>
+        </div>
         <div id="campo">
-            <asp:Button ID="btn1Jugador" runat="server" Text="Jugar partida individual" CssClass="boton" />
+            <asp:Button ID="btn1Jugador" runat="server" Text="Jugar partida individual" CssClass="boton" OnClick="btn1Jugador_Click" />
         </div>
         <div id="campo">
             <asp:Button ID="btn2Jugadores" runat="server" Text="Jugar partida contra otro jugador" CssClass="boton" />

@@ -22,7 +22,6 @@
     color: black;
     font-size: 42px;
     text-align: center;
-    margin: 0 0 30px 0;
     padding: 3px;
     font-weight: bold;
 }
@@ -72,4 +71,18 @@
     padding: 15px 13px;
     text-align: center;
     vertical-align: middle;
+}
+#credenciales1{
+    border: 1px solid;
+    font-size: 25px;
+    width: 99.94%;
+    font-weight: bold;
+    float: left;
+}
+
+#datos1 {
+    width: 100%;
+    display: inline-block;
+    clear: both;
+    margin: 0 0 25px 0;
 }

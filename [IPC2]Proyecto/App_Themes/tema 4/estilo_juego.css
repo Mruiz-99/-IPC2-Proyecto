@@ -60,14 +60,19 @@ td {
 .esquina {
     background: #FEF9C4;
 }
-#credenciales {
+#credenciales1 , #credenciales2 {
     border: 1px solid;
     font-size: 20px;
     width: 49.9%;
     font-weight: bold;
     float: left;
 }
-#datos {
+#datos1 {
+    width: 100%;
+    display: inline-block;
+    clear: both;
+}
+#datos2 {
     margin: 0 0 30px 0;
     width: 100%;
     display: inline-block;

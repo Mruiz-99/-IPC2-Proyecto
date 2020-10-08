@@ -19,14 +19,25 @@
             <asp:Button ID="btnMenu" runat="server" Text="Ir al menú"  CssClass="boton" OnClick="btnMenu_Click"/>
             
         </div>
-        <div id="datos"> 
-            <div id="credenciales" class="auto-style1">
+        <div id="datos1"> 
+            <div id="credenciales1" class="auto-style1">
                
                 <asp:Label ID="txtJugador1" runat="server" Text="Jugador 1"></asp:Label>
                 
             </div>
-            <div id="credenciales">
+            <div id="credenciales2">
                  <asp:Label ID="txtJugador2" runat="server" Text="Jugador 2"></asp:Label>
+            </div>
+
+        </div>
+        <div id="datos2"> 
+            <div id="credenciales1" class="auto-style1">
+               
+                <asp:Label ID="movJ1" runat="server" Text="Movimientos:"></asp:Label>
+                
+            </div>
+            <div id="credenciales2">
+                 <asp:Label ID="movJ2" runat="server" Text="Movimientos:"></asp:Label>
             </div>
 
         </div>
