@@ -38,6 +38,7 @@ namespace _IPC2_Proyecto
         string[] parametros;
         string user;
         string[] lista;
+        Boolean comprobacion = false;
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -342,12 +343,10969 @@ namespace _IPC2_Proyecto
                     colorJ2 = "negro";
                     colorJ1 = "blanco";
                 }
+                if (txtJugador1.BackColor == Color.FromArgb(204, 244, 251))
+                {
+                    ValidarTiro(colorJ1, "D3");
+                    txtJugador1.BackColor = Color.FromArgb(225, 225, 225, 225);
+                    txtJugador2.BackColor = Color.FromArgb(204, 244, 251);
+                }
+                else
+                {
+                    Reglas(colorJ2, "D3");
+                    txtJugador2.BackColor = Color.FromArgb(225, 225, 225, 225);
+                    txtJugador1.BackColor = Color.FromArgb(204, 244, 251);
+                }
+            
+            }  
+        }
+
+        private void ValidarTiro(string colorJ, string Posicion)
+        {
+             comprobacion = false;
+            if (Posicion == "A3")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+
             }
 
-            
-            
-            
+            if (Posicion == "B3")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "D3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H3")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+
+                    /*vertical arriba*/
+                    if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A2")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B2")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical abajo*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical abajo*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "D2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+
+                    /*vertical abajo*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                
+            }
+
+            if (Posicion == "H2")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagnonal hacia abajo izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+
+            if (Posicion == "A1")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical abajo*/
+                    if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B1")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical abajo*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "D1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal abajo izquierda*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H1")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F1.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical abajo*/
+                    if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A4")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                    }
+                    /*vertical arriba*/
+                    if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B4")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C4")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F4")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G4")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H4")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A5")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B5")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C5")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F5")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G5")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+
+                    /*vertical arriba*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H5")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*diagonal hacia abajo izquierda*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A6")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B6")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecho*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                /*diagonal hacia arriba derecha*/
+                if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                {
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        comprobacion = true;
+                    }
+                    if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        comprobacion = true;
+                    }
+                    if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        comprobacion = true;
+                    }
+                    if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        comprobacion = true;
+                    }
+                }
+                /*diagonal hacia abajo izquierda*/
+                if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                {
+                    if (A8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        comprobacion = true;
+                    }
+                }
+            }
+
+            if (Posicion == "D6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo */
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H6")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A7")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B7")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*diagonal hacia arriba derecha*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "D7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H7")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+
+            if (Posicion == "A8")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "B8")
+            {
+                
+                if (colorJ == "negro")
+                {
+
+                    /*horizontal derecha*/
+                    if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal derecha*/
+                    if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "C8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+
+
+                    }
+                    /*vertical arriba*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "D8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "E8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "F8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*horizontal derecha*/
+                    if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*horizontal derecha*/
+                    if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "G8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
+
+            if (Posicion == "H8")
+            {
+                
+                if (colorJ == "negro")
+                {
+                    /*horizontal izquierda*/
+                    if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                    /*vertical arriba*/
+                    if (H7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+
+                }
+                if (colorJ == "blanco")
+                {
+                    /*horizontal izquierda*/
+                    if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical arriba*/
+                    if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                        if ((A1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            comprobacion = true;
+                        }
+                    }
+                }
+            }
         }
+
         public void pintar(string color, string posicion) {
             if (posicion == "A1") {
                 if (color == "blanco")
@@ -2809,9 +13767,10 @@ namespace _IPC2_Proyecto
 
         private void Reglas(string colorJ, string Posicion)
         {
+             comprobacion = false;
             if (Posicion == "A3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -2904,7 +13863,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "B4");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B4");
+                            pintar("negro", "C5");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B4");
+                            pintar("negro", "C5");
+                            pintar("negro", "D6");
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -2999,6 +13996,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "B4");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B4");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B4");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true) {
                     if (txtJugador1.BackColor == Color.FromArgb(204, 244, 251))
@@ -3016,10 +14052,10 @@ namespace _IPC2_Proyecto
                 }
                     
         }
-
+            
             if (Posicion == "B3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     
@@ -3102,7 +14138,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -3187,6 +14261,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -3204,10 +14317,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "C3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -3324,6 +14437,24 @@ namespace _IPC2_Proyecto
                             pintar("negro", "E5");
                             pintar("negro", "F6");
                             pintar("negro", "G7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B4");
                             comprobacion = true;
                         }
                     }
@@ -3451,6 +14582,24 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -3471,7 +14620,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -3576,6 +14725,30 @@ namespace _IPC2_Proyecto
                             pintar("negro", "E4");
                             pintar("negro", "F5");
                             pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "B5");
                             comprobacion = true;
                         }
                     }
@@ -3691,6 +14864,30 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -3711,7 +14908,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "E3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -3814,6 +15011,37 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
 
                 }
                 if (colorJ == "blanco")
@@ -3842,7 +15070,7 @@ namespace _IPC2_Proyecto
                     }
 
                     /*horizontal derecha*/
-                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
                     {
                         if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
                         {
@@ -3919,6 +15147,37 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -3936,10 +15195,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "F3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -4035,6 +15294,45 @@ namespace _IPC2_Proyecto
                         if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
                         {
                             pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            pintar("negro", "B7");
                             comprobacion = true;
                         }
                     }
@@ -4139,6 +15437,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -4159,7 +15496,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -4241,6 +15578,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F4");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                    }
 
                 }
                 if (colorJ == "blanco")
@@ -4285,7 +15661,6 @@ namespace _IPC2_Proyecto
                         }
                     }
 
-
                     /*vertical arriba*/
                     if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
                     {
@@ -4325,6 +15700,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F4");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -4345,7 +15759,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H3")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -4437,7 +15851,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F1.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "G4");
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G4");
+                            pintar("negro", "F5");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G4");
+                            pintar("negro", "F5");
+                            pintar("negro", "E6");
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -4531,6 +15983,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F1.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G4");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("blanco", "G4");
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G4");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G4");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -4552,7 +16043,7 @@ namespace _IPC2_Proyecto
            
             if (Posicion == "A2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -4646,7 +16137,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B3");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B3");
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B3");
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B3");
+                            pintar("negro", "C4");
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -4741,6 +16270,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B3");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B3");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B3");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B3");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -4761,7 +16329,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -5027,7 +16595,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -5139,7 +16707,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo izquierda*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -5254,6 +16830,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -5274,7 +16859,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -5373,6 +16958,21 @@ namespace _IPC2_Proyecto
                             pintar("negro", "E3");
                             pintar("negro", "F4");
                             pintar("negro", "G5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C3");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C3");
+                            pintar("negro", "B4");
                             comprobacion = true;
                         }
                     }
@@ -5479,6 +17079,21 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C3");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C3");
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -5499,7 +17114,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "E2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -5593,7 +17208,28 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo izquierda*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D3");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D3");
+                            pintar("negro", "C4");
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -5689,6 +17325,28 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D3");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D3");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -5709,7 +17367,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -5790,7 +17448,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E3");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -5873,6 +17569,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E3");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -5893,7 +17628,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -5976,7 +17711,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo izquierda*/
+                    if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -6058,6 +17831,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -6075,10 +17887,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "H2")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -6167,6 +17979,45 @@ namespace _IPC2_Proyecto
                             pintar("negro", "H5");
                             pintar("negro", "H6");
                             pintar("negro", "H7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G3");
+                            pintar("negro", "F4");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G3");
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G3");
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G3");
+                            pintar("negro", "F4");
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            pintar("negro", "C7");
                             comprobacion = true;
                         }
                     }
@@ -6262,6 +18113,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagnonal hacia abajo izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G3");
+                            pintar("blanco", "F4");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G3");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G3");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G3");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -6284,7 +18174,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -6408,7 +18298,7 @@ namespace _IPC2_Proyecto
                             pintar("negro", "D4");
                             comprobacion = true;
                         }
-                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
                         {
                             pintar("negro", "B2");
                             pintar("negro", "C3");
@@ -6425,7 +18315,7 @@ namespace _IPC2_Proyecto
                             pintar("negro", "F6");
                             comprobacion = true;
                         }
-                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
                         {
                             pintar("negro", "B2");
                             pintar("negro", "C3");
@@ -6610,7 +18500,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -6896,7 +18786,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -7017,6 +18907,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -7111,7 +19010,7 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-                    /*vertical abajo*/
+                    /*diagonal hacia abajo derecha*/
                     if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
                     {
                         if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
@@ -7141,6 +19040,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -7161,7 +19069,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -7272,7 +19180,21 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo izquierda*/
+                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C2");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C2");
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -7385,6 +19307,21 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C2");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C2");
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -7402,10 +19339,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-            /*ME quede aqui, diagonal de E1 a H4*/
+            
             if (Posicion == "E1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -7494,7 +19431,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F2");
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D2");
+                            pintar("negro", "C3");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D2");
+                            pintar("negro", "C3");
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -7585,6 +19558,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F2");
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D2");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D2");
+                            pintar("blanco", "C3");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D2");
+                            pintar("blanco", "C3");
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -7602,10 +19612,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "F1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -7696,7 +19706,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E2");
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E2");
+                            pintar("negro", "D3");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E2");
+                            pintar("negro", "D3");
+                            pintar("negro", "C4");
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -7789,6 +19837,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E2");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E2");
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E2");
+                            pintar("blanco", "D3");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E2");
+                            pintar("blanco", "D3");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -7809,7 +19896,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -7900,7 +19987,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal abajo izquierda*/
+                    if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F2");
+                            pintar("negro", "E3");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F2");
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F2");
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F2");
+                            pintar("negro", "E3");
+                            pintar("negro", "D4");
+                            pintar("negro", "C5");
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -7993,6 +20118,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F2");
+                            pintar("blanco", "E3");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F2");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F2");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F2");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -8013,7 +20177,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H1")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -8114,6 +20278,55 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G2");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G2");
+                            pintar("negro", "F3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G2");
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G2");
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G2");
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (A8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G2");
+                            pintar("negro", "F3");
+                            pintar("negro", "E4");
+                            pintar("negro", "D5");
+                            pintar("negro", "C6");
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                    }
 
                 }
                 if (colorJ == "blanco")
@@ -8168,7 +20381,6 @@ namespace _IPC2_Proyecto
                         }
                     }
 
-
                     /*vertical abajo*/
                     if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
                     {
@@ -8218,6 +20430,55 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G2");
+                            pintar("blanco", "F3");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G2");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G2");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G2");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (A8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G2");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -8239,7 +20500,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -8330,7 +20591,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B5");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B5");
+                            pintar("negro", "C6");
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B3");
+                            pintar("negro", "C2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -8384,7 +20681,6 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
 
-
                     }
                     /*vertical arriba*/
                     if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
@@ -8423,6 +20719,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B5");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B5");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                        if ((D1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B3");
+                            pintar("blanco", "C2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -8443,7 +20776,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -8524,7 +20857,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "D6");
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C3");
+                            pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -8607,6 +20976,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C3");
+                            pintar("blanco", "D2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -8627,7 +21033,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -8706,7 +21112,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (B3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "E6");
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D3");
+                            pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -8789,6 +21249,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D3");
+                            pintar("blanco", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -8809,7 +21324,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -8912,6 +21427,37 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (G3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E5");
+                            pintar("negro", "D6");
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -9007,6 +21553,37 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((C7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E5");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -9027,7 +21604,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -9122,7 +21699,28 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo izquierda*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F5");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F5");
+                            pintar("negro", "E6");
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -9217,6 +21815,28 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((D7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -9234,10 +21854,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "H4")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -9291,14 +21911,14 @@ namespace _IPC2_Proyecto
                     }
 
                     /*vertical arriba*/
-                    if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
                     {
-                        if (H2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        if (H2.BackColor == Color.FromArgb(0, 0, 0, 0))
                         {
                             pintar("negro", "H3");
                             comprobacion = true;
                         }
-                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H2.BackColor == Color.FromArgb(225, 225, 225, 225)))
                         {
                             pintar("negro", "H3");
                             pintar("negro", "H2");
@@ -9319,11 +21939,48 @@ namespace _IPC2_Proyecto
                             pintar("negro", "H6");
                             comprobacion = true;
                         }
-                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        if ((H8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H6.BackColor == Color.FromArgb(225, 225, 225, 225)) && (H7.BackColor == Color.FromArgb(0, 0, 0, 0)))
                         {
                             pintar("negro", "H5");
                             pintar("negro", "H6");
                             pintar("negro", "H7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "G3");
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("negro", "G5");
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "G5");
+                            pintar("negro", "F6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("negro", "G5");
+                            pintar("negro", "F6");
+                            pintar("negro", "E7");
                             comprobacion = true;
                         }
                     }
@@ -9417,6 +22074,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F2.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G3");
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G5");
+                            comprobacion = true;
+                        }
+                        if ((E7.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G5");
+                            pintar("blanco", "F6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G5");
+                            pintar("blanco", "F6");
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -9438,7 +22132,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -9529,7 +22223,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B6");
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B4");
+                            pintar("negro", "C3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B4");
+                            pintar("negro", "C3");
+                            pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -9622,6 +22352,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B6");
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                        if ((D2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B4");
+                            pintar("blanco", "C3");
+                            comprobacion = true;
+                        }
+                        if ((E1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B4");
+                            pintar("blanco", "C3");
+                            pintar("blanco", "D2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -9639,10 +22406,10 @@ namespace _IPC2_Proyecto
                     pintar(colorJ, Posicion);
                 }
             }
-
+            
             if (Posicion == "B5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -9723,7 +22490,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C4");
+                            pintar("negro", "D3");
+                            pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -9806,6 +22609,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D3");
+                            pintar("blanco", "E2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -9826,7 +22666,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -9869,15 +22709,6 @@ namespace _IPC2_Proyecto
                         }
                     }
                     /*vertical arriba*/
-                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
-                    {
-                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
-                        {
-                            pintar("negro", "C2");
-                            comprobacion = true;
-                        }
-                    }
-                    /*vertical arriba*/
                     if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
                     {
                         if (C3.BackColor == Color.FromArgb(0, 0, 0, 0))
@@ -9914,7 +22745,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -9997,6 +22882,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -10017,7 +22957,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -10124,6 +23064,30 @@ namespace _IPC2_Proyecto
                         if (H7.BackColor == Color.FromArgb(0, 0, 0, 0))
                         {
                             pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H3.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "D7");
                             comprobacion = true;
                         }
                     }
@@ -10239,6 +23203,30 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H3.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -10259,7 +23247,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -10358,6 +23346,21 @@ namespace _IPC2_Proyecto
                             pintar("negro", "F4");
                             pintar("negro", "E3");
                             pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F6");
+                            pintar("negro", "E7");
                             comprobacion = true;
                         }
                     }
@@ -10464,6 +23467,21 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F6");
+                            comprobacion = true;
+                        }
+                        if ((D8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F6");
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -10484,7 +23502,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H5")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -10593,6 +23611,21 @@ namespace _IPC2_Proyecto
                             pintar("negro", "G4");
                             pintar("negro", "F3");
                             pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F7.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G6");
+                            pintar("negro", "F7");
                             comprobacion = true;
                         }
                     }
@@ -10708,6 +23741,22 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+
+                    /*diagonal hacia abajo izquierda*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G6");
+                            comprobacion = true;
+                        }
+                        if ((E8.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F7.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G6");
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -10729,7 +23778,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -10822,7 +23871,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B5");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B5");
+                            pintar("negro", "C4");
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B5");
+                            pintar("negro", "C4");
+                            pintar("negro", "D3");
+                            pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -10917,6 +24004,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B5");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((E2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B5");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((F1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B5");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "D3");
+                            pintar("blanco", "E2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -10937,7 +24063,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -11020,7 +24146,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia abajo derecha*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -11105,6 +24269,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo derecha*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -11125,7 +24328,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -11167,15 +24370,7 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-                    /*vertical arriba*/
-                    if (C2.BackColor == Color.FromArgb(225, 225, 225, 225))
-                    {
-                        if (C1.BackColor == Color.FromArgb(0, 0, 0, 0))
-                        {
-                            pintar("negro", "C2");
-                            comprobacion = true;
-                        }
-                    }
+                    
                     /*vertical arriba*/
                     if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
                     {
@@ -11215,7 +24410,63 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            pintar("negro", "G2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -11300,6 +24551,63 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecho*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
+                }
+                /*diagonal hacia arriba derecha*/
+                if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                {
+                    if (E4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        pintar("blanco", "D5");
+                        comprobacion = true;
+                    }
+                    if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        pintar("blanco", "D5");
+                        pintar("blanco", "E4");
+                        comprobacion = true;
+                    }
+                    if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        pintar("blanco", "D5");
+                        pintar("blanco", "E4");
+                        pintar("blanco", "F3");
+                        comprobacion = true;
+                    }
+                    if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                    {
+                        pintar("blanco", "D5");
+                        pintar("blanco", "E4");
+                        pintar("blanco", "F3");
+                        pintar("blanco", "G2");
+                        comprobacion = true;
+                    }
+                }
+                /*diagonal hacia abajo izquierda*/
+                if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                {
+                    if (A8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        pintar("blanco", "B7");
+                        comprobacion = true;
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -11320,7 +24628,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -11399,7 +24707,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C5");
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -11480,6 +24842,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            comprobacion = true;
+                        }
+                        if ((B2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo */
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -11500,7 +24917,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "E6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -11579,7 +24996,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F5");
+                            pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -11660,6 +25131,61 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo derecha*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F5");
+                            pintar("blanco", "G4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -11680,7 +25206,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -11797,6 +25323,24 @@ namespace _IPC2_Proyecto
                         if (H8.BackColor == Color.FromArgb(0, 0, 0, 0))
                         {
                             pintar("negro", "G7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H4.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*vertical abajo*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E7");
                             comprobacion = true;
                         }
                     }
@@ -11922,6 +25466,24 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H4.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -11942,7 +25504,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -12050,6 +25612,15 @@ namespace _IPC2_Proyecto
                             pintar("negro", "E4");
                             pintar("negro", "D3");
                             pintar("negro", "C2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F7");
                             comprobacion = true;
                         }
                     }
@@ -12164,6 +25735,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -12184,7 +25764,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H6")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -12303,6 +25883,15 @@ namespace _IPC2_Proyecto
                             pintar("negro", "F4");
                             pintar("negro", "E3");
                             pintar("negro", "D2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G7");
                             comprobacion = true;
                         }
                     }
@@ -12427,6 +26016,15 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia abajo izquierda*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F8.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -12448,7 +26046,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -12541,7 +26139,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba derecha*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B6");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B6");
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B6");
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B6");
+                            pintar("negro", "C5");
+                            pintar("negro", "D4");
+                            pintar("negro", "E3");
+                            pintar("negro", "F2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -12636,6 +26272,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                        if ((D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B6");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((E3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B6");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            comprobacion = true;
+                        }
+                        if ((F2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B6");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            comprobacion = true;
+                        }
+                        if ((G1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B6");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "D4");
+                            pintar("blanco", "E3");
+                            pintar("blanco", "F2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -12656,7 +26331,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -12736,6 +26411,46 @@ namespace _IPC2_Proyecto
                             pintar("negro", "B4");
                             pintar("negro", "B3");
                             pintar("negro", "B2");
+                            comprobacion = true;
+                        }
+                    }
+                   
+                    /*diagonal hacia arriba derecha*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            pintar("negro", "G2");
                             comprobacion = true;
                         }
                     }
@@ -12824,6 +26539,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "F3");
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -12844,7 +26598,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -12925,7 +26679,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            pintar("negro", "G3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -13010,6 +26802,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -13030,7 +26861,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -13109,7 +26940,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C6");
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "F5");
+                            pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -13190,6 +27057,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C6");
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "G4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -13210,7 +27114,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "E7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -13286,6 +27190,43 @@ namespace _IPC2_Proyecto
                             pintar("negro", "E4");
                             pintar("negro", "E3");
                             pintar("negro", "E2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D6");
+                            pintar("negro", "C5");
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F6");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F6");
+                            pintar("negro", "G5");
                             comprobacion = true;
                         }
                     }
@@ -13370,6 +27311,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F6");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F6");
+                            pintar("blanco", "G5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -13390,7 +27368,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -13471,7 +27449,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -13554,6 +27570,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -13574,7 +27629,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -13835,7 +27890,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H7")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -13923,6 +27978,45 @@ namespace _IPC2_Proyecto
                             pintar("negro", "H4");
                             pintar("negro", "H3");
                             pintar("negro", "H2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F5.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G6");
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G6");
+                            pintar("negro", "F5");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G6");
+                            pintar("negro", "F5");
+                            pintar("negro", "E4");
+                            pintar("negro", "D3");
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "G6");
+                            pintar("negro", "F5");
+                            pintar("negro", "E4");
+                            pintar("negro", "D3");
+                            pintar("negro", "C2");
                             comprobacion = true;
                         }
                     }
@@ -14018,6 +28112,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F5.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G6");
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((D3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G6");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((C2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G6");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D3");
+                            comprobacion = true;
+                        }
+                        if ((B1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "G6");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "D3");
+                            pintar("blanco", "C2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -14039,7 +28172,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "A8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -14139,6 +28272,55 @@ namespace _IPC2_Proyecto
                             pintar("negro", "A4");
                             pintar("negro", "A3");
                             pintar("negro", "A2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B7");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B7");
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B7");
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B7");
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "B7");
+                            pintar("negro", "C6");
+                            pintar("negro", "D5");
+                            pintar("negro", "E4");
+                            pintar("negro", "F3");
+                            pintar("negro", "G2");
                             comprobacion = true;
                         }
                     }
@@ -14248,6 +28430,55 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B7");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((E4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B7");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((F3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B7");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            comprobacion = true;
+                        }
+                        if ((G2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B7");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "F3");
+                            comprobacion = true;
+                        }
+                        if ((H1.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "B7");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "E4");
+                            pintar("blanco", "F3");
+                            pintar("blanco", "G2");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -14268,7 +28499,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "B8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
 
@@ -14358,6 +28589,45 @@ namespace _IPC2_Proyecto
                             pintar("negro", "B4");
                             pintar("negro", "B3");
                             pintar("negro", "B2");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C7");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C7");
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C7");
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C7");
+                            pintar("negro", "D6");
+                            pintar("negro", "E5");
+                            pintar("negro", "F4");
+                            pintar("negro", "G3");
                             comprobacion = true;
                         }
                     }
@@ -14456,6 +28726,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba derecha*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                        if ((E5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C7");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((F4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C7");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            comprobacion = true;
+                        }
+                        if ((G3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C7");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            comprobacion = true;
+                        }
+                        if ((H2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C7");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "E5");
+                            pintar("blanco", "F4");
+                            pintar("blanco", "G3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -14476,7 +28785,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "C8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -14567,7 +28876,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (B7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (A6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "B7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D7");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D7");
+                            pintar("negro", "E6");
+                            pintar("negro", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D7");
+                            pintar("negro", "E6");
+                            pintar("negro", "F5");
+                            pintar("negro", "G4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -14662,6 +29009,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (B7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (A6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "B7");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                        if ((F5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D7");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((G4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D7");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F5");
+                            comprobacion = true;
+                        }
+                        if ((H3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D7");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "F5");
+                            pintar("blanco", "G4");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -14682,7 +29068,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "D8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -14771,7 +29157,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (C7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (B6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "C7");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "C7");
+                            pintar("negro", "B6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (F6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E7");
+                            pintar("negro", "F6");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E7");
+                            pintar("negro", "F6");
+                            pintar("negro", "G5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -14862,6 +29284,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (C7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (B6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "C7");
+                            comprobacion = true;
+                        }
+                        if ((A5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "C7");
+                            pintar("blanco", "B6");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (F6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                        if ((G5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E7");
+                            pintar("blanco", "F6");
+                            comprobacion = true;
+                        }
+                        if ((H4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (F6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E7");
+                            pintar("blanco", "F6");
+                            pintar("blanco", "G5");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -14882,7 +29341,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "E8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -14971,7 +29430,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (D7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (C6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "D7");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D7");
+                            pintar("negro", "C6");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "D7");
+                            pintar("negro", "C6");
+                            pintar("negro", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (G6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (G6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F7");
+                            pintar("negro", "G6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -14999,7 +29494,7 @@ namespace _IPC2_Proyecto
                     }
 
                     /*horizontal derecha*/
-                    if (E8.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    if (F8.BackColor == Color.FromArgb(0, 0, 0, 0))
                     {
                         if (G8.BackColor == Color.FromArgb(225, 225, 225, 225))
                         {
@@ -15062,6 +29557,43 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (D7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (C6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "D7");
+                            comprobacion = true;
+                        }
+                        if ((B5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D7");
+                            pintar("blanco", "C6");
+                            comprobacion = true;
+                        }
+                        if ((A4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "D7");
+                            pintar("blanco", "C6");
+                            pintar("blanco", "B5");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (G6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                        if ((H5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (G6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F7");
+                            pintar("blanco", "G6");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -15082,7 +29614,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "F8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -15173,7 +29705,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*diagonal hacia arriba izquierda*/
+                    if (E7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (D6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "E7");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E7");
+                            pintar("negro", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E7");
+                            pintar("negro", "D6");
+                            pintar("negro", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "E7");
+                            pintar("negro", "D6");
+                            pintar("negro", "C5");
+                            pintar("negro", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (H6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "G7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -15266,6 +29836,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (E7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (D6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "E7");
+                            comprobacion = true;
+                        }
+                        if ((C5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E7");
+                            pintar("blanco", "D6");
+                            comprobacion = true;
+                        }
+                        if ((B4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E7");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C5");
+                            comprobacion = true;
+                        }
+                        if ((A3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "E7");
+                            pintar("blanco", "D6");
+                            pintar("blanco", "C5");
+                            pintar("blanco", "B4");
+                            comprobacion = true;
+                        }
+                    }
+                    /*diagonal hacia arriba derecha*/
+                    if (G7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (H6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "G7");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -15286,7 +29895,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "G8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
@@ -15378,7 +29987,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
-
+                    /*vertical arriba*/
+                    if (F7.BackColor == Color.FromArgb(225, 225, 225, 225))
+                    {
+                        if (E6.BackColor == Color.FromArgb(0, 0, 0, 0))
+                        {
+                            pintar("negro", "F7");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F7");
+                            pintar("negro", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F7");
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F7");
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(0, 0, 0, 0)) && (B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(225, 225, 225, 225)))
+                        {
+                            pintar("negro", "F7");
+                            pintar("negro", "E6");
+                            pintar("negro", "D5");
+                            pintar("negro", "C4");
+                            pintar("negro", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (colorJ == "blanco")
                 {
@@ -15470,6 +30117,45 @@ namespace _IPC2_Proyecto
                             comprobacion = true;
                         }
                     }
+                    /*diagonal hacia arriba izquierda*/
+                    if (F7.BackColor == Color.FromArgb(0, 0, 0, 0))
+                    {
+                        if (E6.BackColor == Color.FromArgb(225, 225, 225, 225))
+                        {
+                            pintar("blanco", "F7");
+                            comprobacion = true;
+                        }
+                        if ((D5.BackColor == Color.FromArgb(225, 225, 225, 225)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F7");
+                            pintar("blanco", "E6");
+                            comprobacion = true;
+                        }
+                        if ((C4.BackColor == Color.FromArgb(225, 225, 225, 225)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F7");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            comprobacion = true;
+                        }
+                        if ((B3.BackColor == Color.FromArgb(225, 225, 225, 225)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F7");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            comprobacion = true;
+                        }
+                        if ((A2.BackColor == Color.FromArgb(225, 225, 225, 225)) && (B3.BackColor == Color.FromArgb(0, 0, 0, 0)) && (C4.BackColor == Color.FromArgb(0, 0, 0, 0)) && (D5.BackColor == Color.FromArgb(0, 0, 0, 0)) && (E6.BackColor == Color.FromArgb(0, 0, 0, 0)))
+                        {
+                            pintar("blanco", "F7");
+                            pintar("blanco", "E6");
+                            pintar("blanco", "D5");
+                            pintar("blanco", "C4");
+                            pintar("blanco", "B3");
+                            comprobacion = true;
+                        }
+                    }
                 }
                 if (comprobacion == true)
                 {
@@ -15490,7 +30176,7 @@ namespace _IPC2_Proyecto
 
             if (Posicion == "H8")
             {
-                Boolean comprobacion = false;
+                
                 if (colorJ == "negro")
                 {
                     /*horizontal izquierda*/
