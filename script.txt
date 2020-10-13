@@ -18,3 +18,29 @@ create table usuarios
 	CONSTRAINT FK_pais FOREIGN KEY (id_pais) REFERENCES pais (id_pais),
 	correo varchar(200) not null,
 )
+create table reportes
+(
+	id int primary key identity,
+	id_usuario int not null,
+	CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
+	tipo_partida varchar(100) not null,
+	categoria varchar(100) not null,
+	movimientos int not null,
+)
+create table reportes_torneos
+(
+	id int primary key identity,
+	id_usuario int not null,
+	CONSTRAINT FK_usuario FOREIGN KEY (id_usuario) REFERENCES usuarios (id),
+	partidas_jugadas int not null,
+	juegos_ganados int not null,
+	cantidad_jugadores int not null,
+)
+select * from reportes
+select * from usuarios
+select * from reportes_torneos
+select * from paises
+
+
+DROP TABLE reportes
+drop table usuarios

@@ -25,7 +25,7 @@
             <asp:Button ID="btn1Jugador" runat="server" Text="Jugar partida individual" CssClass="boton" OnClick="btn1Jugador_Click" />
         </div>
         <div id="campo">
-            <asp:Button ID="btn2Jugadores" runat="server" Text="Jugar partida contra otro jugador" CssClass="boton" />
+            <asp:Button ID="btn2Jugadores" runat="server" Text="Jugar partida contra otro jugador" CssClass="boton" OnClick="btn2Jugadores_Click" />
         </div>
         <div id="campo">
             <asp:Button ID="btnTorneo" runat="server" Text="Jugar un torneo " CssClass="boton" />

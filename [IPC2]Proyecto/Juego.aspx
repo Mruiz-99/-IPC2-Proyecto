@@ -174,6 +174,8 @@
              
              </asp:Table>
     
+             <asp:Label ID="txtActual" runat="server" ForeColor="White" Text="Label"></asp:Label>
+    
         </div>
         <div id="campo">
             <asp:Button ID="btnGuardar" runat="server" Text="Guardar" CssClass="boton" OnClick="btnGuardar_Click" />

@@ -68,6 +68,13 @@ namespace _IPC2_Proyecto
         {
             lista = user.Text.Split(':');
             usuario = lista[1].Trim();
+            HttpContext.Current.Response.Redirect("Juego.aspx?parametro=" + "maquina" + "," + usuario);
+        }
+
+        protected void btn2Jugadores_Click(object sender, EventArgs e)
+        {
+            lista = user.Text.Split(':');
+            usuario = lista[1].Trim();
             HttpContext.Current.Response.Redirect("Juego.aspx?parametro=" + "individual" + "," + usuario);
         }
     }
